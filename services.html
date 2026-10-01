@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namia — Dịch vụ</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-indigo-600">Namia<span class="text-slate-800">.</span></a>
+      <div class="hidden md:flex items-center gap-8 text-sm">
+        <a data-nav href="index.html" class="hover:text-indigo-600 transition">Trang chủ</a>
+        <a data-nav href="about.html" class="hover:text-indigo-600 transition">Giới thiệu</a>
+        <a data-nav href="services.html" class="hover:text-indigo-600 transition">Dịch vụ</a>
+        <a data-nav href="blog.html" class="hover:text-indigo-600 transition">Tin tức</a>
+        <a data-nav href="contact.html" class="hover:text-indigo-600 transition">Liên hệ</a>
+      </div>
+      <a href="contact.html" class="hidden md:inline-block bg-indigo-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Bắt đầu</a>
+      <button id="menu-btn" class="md:hidden p-2" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 py-3 space-y-2 text-sm">
+      <a data-nav href="index.html" class="block py-1">Trang chủ</a>
+      <a data-nav href="about.html" class="block py-1">Giới thiệu</a>
+      <a data-nav href="services.html" class="block py-1">Dịch vụ</a>
+      <a data-nav href="blog.html" class="block py-1">Tin tức</a>
+      <a data-nav href="contact.html" class="block py-1">Liên hệ</a>
+    </div>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h1 class="text-3xl md:text-5xl font-bold text-slate-900 text-center">Dịch vụ của chúng tôi</h1>
+    <p class="mt-4 max-w-2xl mx-auto text-center text-slate-600">Những gói dịch vụ demo bạn có thể tùy biến theo nhu cầu.</p>
+
+    <div class="mt-12 grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold">Cơ bản</h3>
+        <p class="mt-2 text-slate-600 text-sm">Phù hợp cá nhân, landing page.</p>
+        <p class="mt-6 text-3xl font-bold">0đ<span class="text-base font-normal text-slate-500">/demo</span></p>
+        <ul class="mt-6 space-y-2 text-sm text-slate-600">
+          <li>✅ 1 trang</li><li>✅ Responsive</li><li>✅ Tailwind CSS</li>
+        </ul>
+        <a href="contact.html" class="mt-8 block text-center border border-slate-300 py-2 rounded-lg hover:border-slate-400 transition">Chọn gói</a>
+      </div>
+      <div class="bg-white rounded-xl border-2 border-indigo-600 p-8 shadow-lg relative">
+        <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-indigo-600 text-white text-xs px-3 py-1 rounded-full">Phổ biến</span>
+        <h3 class="text-xl font-semibold">Chuyên nghiệp</h3>
+        <p class="mt-2 text-slate-600 text-sm">Cho doanh nghiệp nhỏ.</p>
+        <p class="mt-6 text-3xl font-bold">990k<span class="text-base font-normal text-slate-500">/demo</span></p>
+        <ul class="mt-6 space-y-2 text-sm text-slate-600">
+          <li>✅ 5 trang</li><li>✅ SEO cơ bản</li><li>✅ Hỗ trợ chỉnh sửa</li>
+        </ul>
+        <a href="contact.html" class="mt-8 block text-center bg-indigo-600 text-white py-2 rounded-lg hover:bg-indigo-700 transition">Chọn gói</a>
+      </div>
+      <div class="bg-white rounded-xl border border-slate-200 p-8 hover:shadow-lg transition">
+        <h3 class="text-xl font-semibold">Nâng cao</h3>
+        <p class="mt-2 text-slate-600 text-sm">Giải pháp tùy chỉnh.</p>
+        <p class="mt-6 text-3xl font-bold">Liên hệ</p>
+        <ul class="mt-6 space-y-2 text-sm text-slate-600">
+          <li>✅ Không giới hạn trang</li><li>✅ Tích hợp API</li><li>✅ Hỗ trợ ưu tiên</li>
+        </ul>
+        <a href="contact.html" class="mt-8 block text-center border border-slate-300 py-2 rounded-lg hover:border-slate-400 transition">Liên hệ</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <p>© <span id="year"></span> Namia. Dự án demo.</p>
+      <div class="flex gap-6">
+        <a href="about.html" class="hover:text-indigo-600">Giới thiệu</a>
+        <a href="contact.html" class="hover:text-indigo-600">Liên hệ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
