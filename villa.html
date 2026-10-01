@@ -130,7 +130,7 @@
     <div id="gallery" class="relative">
       <!-- viewport -->
       <div class="overflow-hidden">
-        <div id="slider-track" class="flex items-center transition-transform duration-500 ease-out">
+        <div id="slider-track" class="flex items-center opacity-0 transition-all duration-500 ease-out">
           <!-- slides được chèn bằng JS -->
         </div>
       </div>
@@ -173,6 +173,7 @@
         const slide = slides[index];
         const offset = slide.offsetLeft - (track.parentElement.clientWidth - slide.clientWidth) / 2;
         track.style.transform = 'translateX(' + (-offset) + 'px)';
+        track.style.opacity = '1'; // hiện track sau khi đã căn đúng
         slides.forEach((s, i) => {
           s.style.opacity = i === index ? '1' : '0.45';
         });
@@ -186,7 +187,13 @@
         index = (index + 1) % photos.length; update();
       });
       window.addEventListener('resize', update);
-      update();
+
+      // Tailwind CDN áp style bất đồng bộ → chờ layout ổn định rồi mới căn giữa,
+      // nếu không slide chưa có chiều rộng thật sẽ bị lệch khi mới load.
+      window.addEventListener('load', update);
+      requestAnimationFrame(update);
+      setTimeout(update, 200);
+      setTimeout(update, 600);
     })();
   </script>
 
