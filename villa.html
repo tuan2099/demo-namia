@@ -157,43 +157,51 @@
 
       const track = document.getElementById('slider-track');
       const counter = document.getElementById('counter');
-      let index = 0;
+      const total = photos.length;
 
-      photos.forEach((src, i) => {
+      // Tạo 1 slide
+      function makeSlide(src, i) {
         const slide = document.createElement('div');
         slide.className = 'slide shrink-0 w-[85%] md:w-[48%] px-3 transition-all duration-500';
         slide.innerHTML = '<img src="' + src + '" alt="Villa ' + (i + 1) +
           '" class="w-full h-[280px] md:h-[500px] object-cover">';
-        track.appendChild(slide);
-      });
-
-      const slides = track.querySelectorAll('.slide');
-
-      function update() {
-        const slide = slides[index];
-        const offset = slide.offsetLeft - (track.parentElement.clientWidth - slide.clientWidth) / 2;
-        track.style.transform = 'translateX(' + (-offset) + 'px)';
-        track.style.opacity = '1'; // hiện track sau khi đã căn đúng
-        slides.forEach((s, i) => {
-          s.style.opacity = i === index ? '1' : '0.45';
-        });
-        counter.textContent = (index + 1) + ' – ' + photos.length;
+        return slide;
       }
 
-      document.getElementById('prev').addEventListener('click', () => {
-        index = (index - 1 + photos.length) % photos.length; update();
-      });
-      document.getElementById('next').addEventListener('click', () => {
-        index = (index + 1) % photos.length; update();
-      });
-      window.addEventListener('resize', update);
+      // Nhân bản ảnh cuối ở đầu + ảnh đầu ở cuối -> loop vô tận, luôn có slide 2 bên
+      track.appendChild(makeSlide(photos[total - 1], total - 1)); // clone cuối
+      photos.forEach((src, i) => track.appendChild(makeSlide(src, i)));
+      track.appendChild(makeSlide(photos[0], 0)); // clone đầu
 
-      // Tailwind CDN áp style bất đồng bộ → chờ layout ổn định rồi mới căn giữa,
-      // nếu không slide chưa có chiều rộng thật sẽ bị lệch khi mới load.
-      window.addEventListener('load', update);
-      requestAnimationFrame(update);
-      setTimeout(update, 200);
-      setTimeout(update, 600);
+      const slides = track.querySelectorAll('.slide');
+      let index = 1; // bắt đầu ở ảnh thật đầu tiên (sau clone)
+
+      function position(animate) {
+        const slide = slides[index];
+        const offset = slide.offsetLeft - (track.parentElement.clientWidth - slide.clientWidth) / 2;
+        track.style.transition = animate ? 'transform .5s ease-out, opacity .5s' : 'opacity .5s';
+        track.style.transform = 'translateX(' + (-offset) + 'px)';
+        track.style.opacity = '1';
+        slides.forEach((s, i) => { s.style.opacity = i === index ? '1' : '0.45'; });
+        const real = ((index - 1 + total) % total) + 1;
+        counter.textContent = real + ' – ' + total;
+      }
+
+      // Khi lướt tới clone thì nhảy về ảnh thật tương ứng (không animation)
+      track.addEventListener('transitionend', () => {
+        if (index === 0) { index = total; position(false); }
+        else if (index === slides.length - 1) { index = 1; position(false); }
+      });
+
+      document.getElementById('prev').addEventListener('click', () => { index--; position(true); });
+      document.getElementById('next').addEventListener('click', () => { index++; position(true); });
+      window.addEventListener('resize', () => position(false));
+
+      // Tailwind CDN áp style bất đồng bộ → chờ layout ổn định rồi mới căn giữa.
+      window.addEventListener('load', () => position(false));
+      requestAnimationFrame(() => position(false));
+      setTimeout(() => position(false), 200);
+      setTimeout(() => position(false), 600);
     })();
   </script>
 
