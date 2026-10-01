@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Namia — Honeymoon Pool Villa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind.config.js"></script>
+</head>
+<body class="bg-sand text-ink antialiased font-sans">
+
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
+    <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="index.html" class="text-xl font-bold text-primary-600">Namia<span class="text-slate-800">.</span></a>
+      <div class="hidden md:flex items-center gap-8 text-sm">
+        <a data-nav href="index.html" class="hover:text-primary-600 transition">Trang chủ</a>
+        <a data-nav href="about.html" class="hover:text-primary-600 transition">Giới thiệu</a>
+        <a data-nav href="services.html" class="hover:text-primary-600 transition">Dịch vụ</a>
+        <a data-nav href="blog.html" class="hover:text-primary-600 transition">Tin tức</a>
+        <a data-nav href="contact.html" class="hover:text-primary-600 transition">Liên hệ</a>
+      </div>
+      <a href="contact.html" class="hidden md:inline-block bg-primary-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-primary-700 transition">Bắt đầu</a>
+      <button id="menu-btn" class="md:hidden p-2" aria-label="Menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </nav>
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-200 bg-white px-4 py-3 space-y-2 text-sm">
+      <a data-nav href="index.html" class="block py-1">Trang chủ</a>
+      <a data-nav href="about.html" class="block py-1">Giới thiệu</a>
+      <a data-nav href="services.html" class="block py-1">Dịch vụ</a>
+      <a data-nav href="blog.html" class="block py-1">Tin tức</a>
+      <a data-nav href="contact.html" class="block py-1">Liên hệ</a>
+    </div>
+  </header>
+
+  <!-- Villa detail -->
+  <section class="max-w-6xl mx-auto px-4 py-16 md:py-24">
+    <div class="grid md:grid-cols-2 gap-10 lg:gap-16 items-center">
+
+      <!-- Cột nội dung -->
+      <div class="order-2 md:order-1 max-w-md">
+        <h1 class="font-heading text-4xl md:text-5xl leading-tight tracking-wide text-primary-900 uppercase">
+          Honeymoon<br>Pool Villa
+        </h1>
+
+        <p class="mt-6 text-slate-600 leading-relaxed">
+          Inspired by <strong class="font-semibold text-ink">Rituals Of Light</strong>, the Honeymoon Pool
+          Villa is shaped around privacy, togetherness and the changing glow of the river throughout the day.
+        </p>
+
+        <p class="mt-5 text-slate-600 leading-relaxed">
+          The bedroom opens towards the private pool and river beyond, while a private Jacuzzi and sauna
+          invite slower moments shared between two. From quiet mornings to evenings held in soft light, the
+          villa creates an intimate setting with space to be entirely together.
+        </p>
+
+        <p class="mt-8 text-slate-600">Available with a king or twin-bed configuration, each villa includes:</p>
+        <ul class="mt-4 space-y-2 text-slate-600">
+          <li class="flex gap-3"><span class="text-primary-500">•</span> Indoor living space: 62 sqm / 667 sq ft</li>
+          <li class="flex gap-3"><span class="text-primary-500">•</span> Private pool and terrace: 86 sqm / 926 sq ft</li>
+          <li class="flex gap-3"><span class="text-primary-500">•</span> Total villa space: 148 sqm / 1,593 sq ft</li>
+        </ul>
+
+        <a href="contact.html"
+           class="mt-10 inline-block bg-primary-400/80 hover:bg-primary-500 text-white tracking-[0.2em] text-sm px-10 py-4 transition">
+          RESERVE
+        </a>
+      </div>
+
+      <!-- Cột ảnh -->
+      <div class="order-1 md:order-2">
+        <img
+          src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80"
+          alt="Honeymoon Pool Villa"
+          class="w-full h-[320px] md:h-[520px] object-cover shadow-sm" />
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="border-t border-slate-200 bg-white">
+    <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
+      <p>© <span id="year"></span> Namia. Dự án demo.</p>
+      <div class="flex gap-6">
+        <a href="about.html" class="hover:text-primary-600">Giới thiệu</a>
+        <a href="contact.html" class="hover:text-primary-600">Liên hệ</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
