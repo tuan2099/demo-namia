@@ -4,21 +4,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Namia — Liên hệ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="assets/js/tailwind.config.js"></script>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="bg-sand text-ink antialiased font-sans">
 
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-slate-200">
     <nav class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="index.html" class="text-xl font-bold text-indigo-600">Namia<span class="text-slate-800">.</span></a>
+      <a href="index.html" class="text-xl font-bold text-primary-600">Namia<span class="text-slate-800">.</span></a>
       <div class="hidden md:flex items-center gap-8 text-sm">
-        <a data-nav href="index.html" class="hover:text-indigo-600 transition">Trang chủ</a>
-        <a data-nav href="about.html" class="hover:text-indigo-600 transition">Giới thiệu</a>
-        <a data-nav href="services.html" class="hover:text-indigo-600 transition">Dịch vụ</a>
-        <a data-nav href="blog.html" class="hover:text-indigo-600 transition">Tin tức</a>
-        <a data-nav href="contact.html" class="hover:text-indigo-600 transition">Liên hệ</a>
+        <a data-nav href="index.html" class="hover:text-primary-600 transition">Trang chủ</a>
+        <a data-nav href="about.html" class="hover:text-primary-600 transition">Giới thiệu</a>
+        <a data-nav href="services.html" class="hover:text-primary-600 transition">Dịch vụ</a>
+        <a data-nav href="blog.html" class="hover:text-primary-600 transition">Tin tức</a>
+        <a data-nav href="contact.html" class="hover:text-primary-600 transition">Liên hệ</a>
       </div>
-      <a href="contact.html" class="hidden md:inline-block bg-indigo-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-indigo-700 transition">Bắt đầu</a>
+      <a href="contact.html" class="hidden md:inline-block bg-primary-600 text-white text-sm px-4 py-2 rounded-lg hover:bg-primary-700 transition">Bắt đầu</a>
       <button id="menu-btn" class="md:hidden p-2" aria-label="Menu">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
       </button>
@@ -33,25 +37,25 @@
   </header>
 
   <section class="max-w-3xl mx-auto px-4 py-16">
-    <h1 class="text-3xl md:text-5xl font-bold text-slate-900 text-center">Liên hệ với chúng tôi</h1>
+    <h1 class="font-heading text-3xl md:text-5xl font-bold text-slate-900 text-center">Liên hệ với chúng tôi</h1>
     <p class="mt-4 text-center text-slate-600">Điền thông tin bên dưới, chúng tôi sẽ phản hồi sớm nhất.</p>
 
     <form class="mt-10 bg-white rounded-xl border border-slate-200 p-6 md:p-8 space-y-5" onsubmit="event.preventDefault(); alert('Đây là form demo — chưa gửi đi đâu cả!');">
       <div class="grid md:grid-cols-2 gap-5">
         <div>
           <label class="block text-sm font-medium mb-1">Họ tên</label>
-          <input type="text" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Nguyễn Văn A" />
+          <input type="text" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500" placeholder="Nguyễn Văn A" />
         </div>
         <div>
           <label class="block text-sm font-medium mb-1">Email</label>
-          <input type="email" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="email@example.com" />
+          <input type="email" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500" placeholder="email@example.com" />
         </div>
       </div>
       <div>
         <label class="block text-sm font-medium mb-1">Nội dung</label>
-        <textarea rows="4" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Bạn cần hỗ trợ gì?"></textarea>
+        <textarea rows="4" required class="w-full border border-slate-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary-500" placeholder="Bạn cần hỗ trợ gì?"></textarea>
       </div>
-      <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 transition">Gửi tin nhắn</button>
+      <button type="submit" class="w-full bg-primary-600 text-white py-3 rounded-lg hover:bg-primary-700 transition">Gửi tin nhắn</button>
     </form>
 
     <div class="mt-10 grid md:grid-cols-3 gap-4 text-center text-sm">
@@ -65,8 +69,8 @@
     <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
       <p>© <span id="year"></span> Namia. Dự án demo.</p>
       <div class="flex gap-6">
-        <a href="about.html" class="hover:text-indigo-600">Giới thiệu</a>
-        <a href="contact.html" class="hover:text-indigo-600">Liên hệ</a>
+        <a href="about.html" class="hover:text-primary-600">Giới thiệu</a>
+        <a href="contact.html" class="hover:text-primary-600">Liên hệ</a>
       </div>
     </div>
   </footer>
