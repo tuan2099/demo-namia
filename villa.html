@@ -125,6 +125,71 @@
     </div>
   </section>
 
+  <!-- Gallery slider -->
+  <section class="py-16 overflow-hidden">
+    <div id="gallery" class="relative">
+      <!-- viewport -->
+      <div class="overflow-hidden">
+        <div id="slider-track" class="flex items-center transition-transform duration-500 ease-out">
+          <!-- slides được chèn bằng JS -->
+        </div>
+      </div>
+
+      <!-- Điều khiển -->
+      <div class="mt-8 flex items-center justify-center gap-10 text-primary-700">
+        <button id="prev" aria-label="Trước" class="text-3xl hover:text-primary-900 transition">&lt;</button>
+        <span id="counter" class="text-sm tracking-widest text-slate-500">1 – 8</span>
+        <button id="next" aria-label="Sau" class="text-3xl hover:text-primary-900 transition">&gt;</button>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    (function () {
+      // Ảnh default — đổi link sau này tùy ý
+      const base = 'https://images.unsplash.com/';
+      const photos = [
+        'photo-1582719478250-c89cae4dc85b','photo-1540518614846-7eded433c457',
+        'photo-1571896349842-33c89424de2d','photo-1596394516093-501ba68a0ba6',
+        'photo-1578683010236-d716f9a3f461','photo-1560448204-e02f11c3d0e2',
+        'photo-1611892440504-42a792e24d32','photo-1618773928121-c32242e63f39',
+      ].map(id => base + id + '?auto=format&fit=crop&w=1000&q=80');
+
+      const track = document.getElementById('slider-track');
+      const counter = document.getElementById('counter');
+      let index = 0;
+
+      photos.forEach((src, i) => {
+        const slide = document.createElement('div');
+        slide.className = 'slide shrink-0 w-[85%] md:w-[48%] px-3 transition-all duration-500';
+        slide.innerHTML = '<img src="' + src + '" alt="Villa ' + (i + 1) +
+          '" class="w-full h-[280px] md:h-[500px] object-cover">';
+        track.appendChild(slide);
+      });
+
+      const slides = track.querySelectorAll('.slide');
+
+      function update() {
+        const slide = slides[index];
+        const offset = slide.offsetLeft - (track.parentElement.clientWidth - slide.clientWidth) / 2;
+        track.style.transform = 'translateX(' + (-offset) + 'px)';
+        slides.forEach((s, i) => {
+          s.style.opacity = i === index ? '1' : '0.45';
+        });
+        counter.textContent = (index + 1) + ' – ' + photos.length;
+      }
+
+      document.getElementById('prev').addEventListener('click', () => {
+        index = (index - 1 + photos.length) % photos.length; update();
+      });
+      document.getElementById('next').addEventListener('click', () => {
+        index = (index + 1) % photos.length; update();
+      });
+      window.addEventListener('resize', update);
+      update();
+    })();
+  </script>
+
   <footer class="border-t border-slate-200 bg-white">
     <div class="max-w-6xl mx-auto px-4 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-slate-500">
       <p>© <span id="year"></span> Namia. Dự án demo.</p>
