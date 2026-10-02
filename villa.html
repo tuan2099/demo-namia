@@ -49,7 +49,7 @@
       <!-- Cột ảnh: luôn cao bằng cột chữ -->
       <div class="order-1 md:order-2">
         <img
-          src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80"
+          src="assets/img/Picture1.jpg"
           alt="Honeymoon Pool Villa"
           class="object-cover w-full h-auto shadow-sm md:h-full" />
       </div>
@@ -128,14 +128,11 @@
 
   <script>
     (function () {
-      // Ảnh default — đổi link sau này tùy ý
-      const base = 'https://images.unsplash.com/';
+      // Ảnh gallery — thêm/bớt file trong assets/img tùy ý
       const photos = [
-        'photo-1582719478250-c89cae4dc85b','photo-1540518614846-7eded433c457',
-        'photo-1571896349842-33c89424de2d','photo-1596394516093-501ba68a0ba6',
-        'photo-1578683010236-d716f9a3f461','photo-1560448204-e02f11c3d0e2',
-        'photo-1611892440504-42a792e24d32','photo-1618773928121-c32242e63f39',
-      ].map(id => base + id + '?auto=format&fit=crop&w=1000&q=80');
+        'assets/img/Picture1.jpg','assets/img/Picture2.jpg','assets/img/Picture3.jpg',
+        'assets/img/Picture4.jpg','assets/img/Picture5.jpg','assets/img/Picture6.jpg',
+      ];
 
       const track = document.getElementById('slider-track');
       const counter = document.getElementById('counter');
@@ -195,7 +192,7 @@
 
       <!-- Card 1 -->
       <article class="flex flex-col h-full">
-        <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1000&q=80"
+        <img src="assets/img/Picture5.jpg"
              alt="Nipa Pool Villa" class="w-full h-auto md:h-[340px] object-cover">
         <h3 class="mt-8 text-2xl tracking-wide uppercase font-heading text-primary-900">Nipa Pool Villa</h3>
         <p class="max-w-md mt-4 text-sm leading-relaxed text-slate-600">
@@ -209,7 +206,7 @@
 
       <!-- Card 2 -->
       <article class="flex flex-col h-full">
-        <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
+        <img src="assets/img/Picture6.jpg"
              alt="River Pool Villa" class="w-full h-auto md:h-[340px] object-cover">
         <h3 class="mt-8 text-2xl tracking-wide uppercase font-heading text-primary-900">River Pool Villa</h3>
         <p class="max-w-md mt-4 text-sm leading-relaxed text-slate-600">
