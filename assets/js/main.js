@@ -4,7 +4,10 @@
 (function () {
   const LINE_HEIGHT = 1.1;
   const style = document.createElement('style');
-  style.textContent = 'body, body *{ line-height:' + LINE_HEIGHT + ' !important; }';
+  style.textContent =
+    'body, body *{ line-height:' + LINE_HEIGHT + ' !important; }' +
+    // Mặc định Open Sans Light (300); font-bold/semibold vẫn tự đè lên
+    'body{ font-weight:300; }';
   document.head.appendChild(style);
 })();
 
