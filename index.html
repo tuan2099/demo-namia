@@ -153,7 +153,7 @@
       // Tạo 1 slide
       function makeSlide(src, i) {
         const slide = document.createElement('div');
-        slide.className = 'slide shrink-0 w-[92%] md:w-[48%] px-2 md:px-[22px] transition-all duration-500';
+        slide.className = 'slide shrink-0 w-[92%] md:w-[48%] px-2 md:px-[22px] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform';
         slide.innerHTML = '<img src="' + src + '" alt="Villa ' + (i + 1) +
           '" class="w-full h-[280px] md:h-[500px] object-cover">';
         return slide;
@@ -170,7 +170,9 @@
       function position(animate) {
         const slide = slides[index];
         const offset = slide.offsetLeft - (track.parentElement.clientWidth - slide.clientWidth) / 2;
-        track.style.transition = animate ? 'transform .5s ease-out, opacity .5s' : 'opacity .5s';
+        track.style.transition = animate
+          ? 'transform .7s cubic-bezier(0.22,1,0.36,1), opacity .5s'
+          : 'opacity .5s';
         track.style.transform = 'translateX(' + (-offset) + 'px)';
         track.style.opacity = '1';
         // Desktop: ảnh giữa to hơn, 2 ảnh bên thu nhỏ. Mobile: giữ nguyên.
@@ -258,7 +260,7 @@
 
       <!-- Card 1 -->
       <article class="flex flex-col h-full">
-        <img src="assets/img/Honeymoon Villa-Outside 1-Namia River Retreat-SLH.jpg.jpg"
+        <img src="assets/img/Honeymoon Villa-interior 2-Namia River Retreat-SLH.jpg"
              alt="Nipa Pool Villa" class="w-full h-auto md:h-[340px] object-cover">
         <h3 class="mt-8 text-2xl tracking-wide uppercase font-heading text-primary-900">Nipa Pool Villa</h3>
         <p class="max-w-md mt-4 text-sm leading-relaxed text-slate-600">
@@ -272,7 +274,7 @@
 
       <!-- Card 2 -->
       <article class="flex flex-col h-full">
-        <img src="assets/img/Honeymoon Villa-Outside 2-Namia River Retreat-SLH.jpg"
+        <img src="assets/img/Honeymoon Villa-Jacuzzi 2-Namia River Retreat-SLH.jpg"
              alt="River Pool Villa" class="w-full h-auto md:h-[340px] object-cover">
         <h3 class="mt-8 text-2xl tracking-wide uppercase font-heading text-primary-900">River Pool Villa</h3>
         <p class="max-w-md mt-4 text-sm leading-relaxed text-slate-600">
