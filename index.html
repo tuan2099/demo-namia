@@ -176,6 +176,47 @@
       document.getElementById('next').addEventListener('click', () => { index++; position(true); });
       window.addEventListener('resize', () => position(false));
 
+      // ==== Kéo bằng tay (chuột + chạm) ====
+      const viewport = track.parentElement;
+      viewport.classList.add('cursor-grab', 'select-none');
+      let dragging = false, startX = 0, baseX = 0;
+
+      function baseOffset() {
+        const slide = slides[index];
+        return -(slide.offsetLeft - (viewport.clientWidth - slide.clientWidth) / 2);
+      }
+      function dragStart(e) {
+        dragging = true;
+        startX = e.touches ? e.touches[0].clientX : e.clientX;
+        baseX = baseOffset();
+        track.style.transition = 'none';
+        viewport.classList.add('cursor-grabbing');
+      }
+      function dragMove(e) {
+        if (!dragging) return;
+        const x = e.touches ? e.touches[0].clientX : e.clientX;
+        track.style.transform = 'translateX(' + (baseX + (x - startX)) + 'px)';
+      }
+      function dragEnd(e) {
+        if (!dragging) return;
+        dragging = false;
+        viewport.classList.remove('cursor-grabbing');
+        const x = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+        const dx = x - startX;
+        const threshold = viewport.clientWidth * 0.08; // kéo quá ~8% chiều rộng thì chuyển slide
+        if (dx < -threshold) index++;
+        else if (dx > threshold) index--;
+        position(true);
+      }
+      viewport.addEventListener('mousedown', dragStart);
+      window.addEventListener('mousemove', dragMove);
+      window.addEventListener('mouseup', dragEnd);
+      viewport.addEventListener('touchstart', dragStart, { passive: true });
+      viewport.addEventListener('touchmove', dragMove, { passive: true });
+      viewport.addEventListener('touchend', dragEnd);
+      // Chặn hành vi kéo-thả ảnh mặc định của trình duyệt
+      track.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
+
       // Tailwind CDN áp style bất đồng bộ → chờ layout ổn định rồi mới căn giữa.
       window.addEventListener('load', () => position(false));
       requestAnimationFrame(() => position(false));
