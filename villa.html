@@ -10,31 +10,31 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
 </head>
-<body class="bg-sand text-ink antialiased font-sans">
+<body class="font-sans antialiased bg-sand text-ink">
 
   <!-- Villa detail -->
   <section class="max-w-[1280px] mx-auto px-4 py-16 md:py-24">
     <div class="grid md:grid-cols-[3fr_7fr] gap-10 lg:gap-16 items-stretch">
 
       <!-- Cột nội dung -->
-      <div class="order-2 md:order-1 max-w-md">
-        <h1 class="font-heading text-4xl md:text-5xl leading-tight tracking-wide text-primary-900 uppercase">
+      <div class="order-2 max-w-md md:order-1">
+        <h1 class="text-3xl leading-tight tracking-wide uppercase font-heading md:text-4xl text-primary-900">
           Honeymoon<br>Pool Villa
         </h1>
 
-        <p class="mt-6 text-slate-600 leading-relaxed">
+        <p class="mt-6 text-sm leading-relaxed text-slate-600">
           Inspired by <strong class="font-semibold text-ink">Rituals Of Light</strong>, the Honeymoon Pool
           Villa is shaped around privacy, togetherness and the changing glow of the river throughout the day.
         </p>
 
-        <p class="mt-5 text-slate-600 leading-relaxed">
+        <p class="mt-5 text-sm leading-relaxed text-slate-600">
           The bedroom opens towards the private pool and river beyond, while a private Jacuzzi and sauna
           invite slower moments shared between two. From quiet mornings to evenings held in soft light, the
           villa creates an intimate setting with space to be entirely together.
         </p>
 
-        <p class="mt-8 text-slate-600">Available with a king or twin-bed configuration, each villa includes:</p>
-        <ul class="mt-4 space-y-2 text-slate-600">
+        <p class="mt-8 text-sm text-slate-600">Available with a king or twin-bed configuration, each villa includes:</p>
+        <ul class="mt-4 space-y-2 text-sm text-slate-600">
           <li class="flex gap-3"><span class="text-primary-500">•</span> Indoor living space: 62 sqm / 667 sq ft</li>
           <li class="flex gap-3"><span class="text-primary-500">•</span> Private pool and terrace: 86 sqm / 926 sq ft</li>
           <li class="flex gap-3"><span class="text-primary-500">•</span> Total villa space: 148 sqm / 1,593 sq ft</li>
@@ -51,7 +51,7 @@
         <img
           src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1200&q=80"
           alt="Honeymoon Pool Villa"
-          class="w-full h-auto md:h-full object-cover shadow-sm" />
+          class="object-cover w-full h-auto shadow-sm md:h-full" />
       </div>
 
     </div>
@@ -63,7 +63,7 @@
 
       <!-- Panel trái: Wellness (nâu đậm) -->
       <div class="bg-primary-900 text-white/90 p-8 md:p-10 rounded-[19px]">
-        <h2 class="font-heading text-xl tracking-wide text-white/80 uppercase">Wellness - Inclusive Stay</h2>
+        <h2 class="text-xl tracking-wide uppercase font-heading text-white/80">Wellness - Inclusive Stay</h2>
         <ul class="mt-8 space-y-4 text-sm text-white/80">
           <li class="flex gap-3"><span class="text-primary-300">•</span> Daily 90-minute Wellness Journey</li>
           <li class="flex gap-3"><span class="text-primary-300">•</span> All-day breakfast</li>
@@ -76,9 +76,9 @@
       </div>
 
       <!-- Panel phải: Amenities (taupe) -->
-      <div class="bg-primary-200 text-primary-900 p-8 md:p-10">
-        <h2 class="font-heading text-xl tracking-wide text-primary-700 uppercase">Amenities</h2>
-        <div class="mt-8 grid sm:grid-cols-2 gap-x-8 gap-y-4 text-sm">
+      <div class="p-8 bg-primary-200 text-primary-900 md:p-10">
+        <h2 class="text-xl tracking-wide uppercase font-heading text-primary-700">Amenities</h2>
+        <div class="grid mt-8 text-sm sm:grid-cols-2 gap-x-8 gap-y-4">
           <div class="flex gap-3"><span class="text-primary-600">•</span> Private pool</div>
           <div class="flex gap-3"><span class="text-primary-600">•</span> Private outdoor lounge</div>
           <div class="flex gap-3"><span class="text-primary-600">•</span> Thu Bon River views</div>
@@ -104,16 +104,16 @@
     <div id="gallery" class="relative">
       <!-- viewport -->
       <div class="overflow-hidden">
-        <div id="slider-track" class="flex items-center opacity-0 transition-all duration-500 ease-out">
+        <div id="slider-track" class="flex items-center transition-all duration-500 ease-out opacity-0">
           <!-- slides được chèn bằng JS -->
         </div>
       </div>
 
       <!-- Điều khiển -->
       <div class="mt-8 flex items-center justify-center gap-[68px] text-primary-700">
-        <button id="prev" aria-label="Trước" class="text-3xl hover:text-primary-900 transition">&lt;</button>
+        <button id="prev" aria-label="Trước" class="text-3xl transition hover:text-primary-900">&lt;</button>
         <span id="counter" class="text-sm tracking-widest text-slate-500">1 – 8</span>
-        <button id="next" aria-label="Sau" class="text-3xl hover:text-primary-900 transition">&gt;</button>
+        <button id="next" aria-label="Sau" class="text-3xl transition hover:text-primary-900">&gt;</button>
       </div>
     </div>
   </section>
@@ -181,21 +181,21 @@
 
   <!-- Discover more -->
   <section class="max-w-[1280px] mx-auto px-4 pb-24">
-    <h2 class="font-heading text-2xl md:text-3xl tracking-wide text-primary-900 uppercase">Discover More</h2>
+    <h2 class="text-2xl tracking-wide uppercase font-heading md:text-3xl text-primary-900">Discover More</h2>
 
-    <div class="mt-8 grid md:grid-cols-2 gap-10">
+    <div class="grid gap-10 mt-8 md:grid-cols-2">
 
       <!-- Card 1 -->
       <article class="flex flex-col h-full">
         <img src="https://images.unsplash.com/photo-1540518614846-7eded433c457?auto=format&fit=crop&w=1000&q=80"
              alt="Nipa Pool Villa" class="w-full h-auto md:h-[340px] object-cover">
-        <h3 class="font-heading text-2xl tracking-wide text-primary-900 uppercase mt-8">Nipa Pool Villa</h3>
-        <p class="mt-4 text-sm text-slate-600 leading-relaxed max-w-md">
+        <h3 class="mt-8 text-2xl tracking-wide uppercase font-heading text-primary-900">Nipa Pool Villa</h3>
+        <p class="max-w-md mt-4 text-sm leading-relaxed text-slate-600">
           A one-bedroom private pool villa with Nipa palm forest views. Perfect for a mindful wellness retreat in Hoi An.
         </p>
-        <div class="mt-auto pt-8 flex gap-4">
-          <a href="villa.html" class="bg-primary-200 hover:bg-primary-300 text-primary-900 tracking-widest text-sm px-8 py-3 transition">DISCOVER</a>
-          <a href="contact.html" class="bg-primary-200 hover:bg-primary-300 text-primary-900 tracking-widest text-sm px-8 py-3 transition">RESERVE</a>
+        <div class="flex gap-4 pt-8 mt-auto">
+          <a href="villa.html" class="px-8 py-3 text-sm tracking-widest transition bg-primary-200 hover:bg-primary-300 text-primary-900">DISCOVER</a>
+          <a href="contact.html" class="px-8 py-3 text-sm tracking-widest transition bg-primary-200 hover:bg-primary-300 text-primary-900">RESERVE</a>
         </div>
       </article>
 
@@ -203,13 +203,13 @@
       <article class="flex flex-col h-full">
         <img src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?auto=format&fit=crop&w=1000&q=80"
              alt="River Pool Villa" class="w-full h-auto md:h-[340px] object-cover">
-        <h3 class="font-heading text-2xl tracking-wide text-primary-900 uppercase mt-8">River Pool Villa</h3>
-        <p class="mt-4 text-sm text-slate-600 leading-relaxed max-w-md">
+        <h3 class="mt-8 text-2xl tracking-wide uppercase font-heading text-primary-900">River Pool Villa</h3>
+        <p class="max-w-md mt-4 text-sm leading-relaxed text-slate-600">
           One-bedroom riverfront villa with private pool, direct Thu Bon river views, terrace lounge, and sunken bathtub. Perfect for a luxury wellness retreat in Hoi An.
         </p>
-        <div class="mt-auto pt-8 flex gap-4">
-          <a href="villa.html" class="bg-primary-200 hover:bg-primary-300 text-primary-900 tracking-widest text-sm px-8 py-3 transition">DISCOVER</a>
-          <a href="contact.html" class="bg-primary-200 hover:bg-primary-300 text-primary-900 tracking-widest text-sm px-8 py-3 transition">RESERVE</a>
+        <div class="flex gap-4 pt-8 mt-auto">
+          <a href="villa.html" class="px-8 py-3 text-sm tracking-widest transition bg-primary-200 hover:bg-primary-300 text-primary-900">DISCOVER</a>
+          <a href="contact.html" class="px-8 py-3 text-sm tracking-widest transition bg-primary-200 hover:bg-primary-300 text-primary-900">RESERVE</a>
         </div>
       </article>
 
