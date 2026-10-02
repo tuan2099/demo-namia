@@ -9,6 +9,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Gotu&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="assets/js/tailwind.config.js"></script>
+  <style>
+    /* Khoảng cách dòng thoáng cho khối nội dung villa (giống namia),
+       ghi đè line-height global nhờ độ ưu tiên cao hơn */
+    body .villa-copy p,
+    body .villa-copy li { line-height: 1.6 !important; }
+  </style>
 </head>
 <body class="font-sans antialiased bg-sand text-ink">
 
@@ -17,7 +23,7 @@
     <div class="grid md:grid-cols-[3fr_7fr] gap-10 lg:gap-16 items-stretch">
 
       <!-- Cột nội dung -->
-      <div class="order-2 max-w-md md:order-1 flex flex-col h-full">
+      <div class="villa-copy order-2 max-w-md md:order-1 flex flex-col h-full">
         <h1 class="text-3xl leading-tight tracking-wide uppercase font-heading md:text-4xl text-primary-900">
           Honeymoon<br>Pool Villa
         </h1>
