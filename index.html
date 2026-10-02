@@ -153,7 +153,7 @@
       // Tạo 1 slide
       function makeSlide(src, i) {
         const slide = document.createElement('div');
-        slide.className = 'slide shrink-0 w-[92%] md:w-[48%] px-2 md:px-9 transition-all duration-500';
+        slide.className = 'slide shrink-0 w-[92%] md:w-[48%] px-2 md:px-[22px] transition-all duration-500';
         slide.innerHTML = '<img src="' + src + '" alt="Villa ' + (i + 1) +
           '" class="w-full h-[280px] md:h-[500px] object-cover">';
         return slide;
@@ -179,7 +179,7 @@
           const active = i === index;
           s.style.opacity = active ? '1' : '0.45';
           s.style.transformOrigin = 'center';
-          s.style.transform = (isDesktop && !active) ? 'scale(0.82)' : 'scale(1)';
+          s.style.transform = (isDesktop && !active) ? 'scale(0.71)' : 'scale(1)';
         });
         const real = ((index - 1 + total) % total) + 1;
         counter.textContent = real + ' – ' + total;
