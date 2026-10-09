@@ -168,19 +168,10 @@
           : 'opacity .5s';
         track.style.transform = 'translateX(' + (-offset) + 'px)';
         track.style.opacity = '1';
-        // Desktop: ảnh giữa to hơn, 2 ảnh bên thu nhỏ. Mobile: giữ nguyên.
-        const isDesktop = window.matchMedia('(min-width: 768px)').matches;
-        slides.forEach((s, i) => {
-          const active = i === index;
-          s.style.opacity = active ? '1' : '0.45';
-          if (isDesktop && !active) {
-            // Co về phía ảnh giữa để mép trong không lùi ra xa -> khoảng cách nhỏ lại
-            s.style.transformOrigin = i < index ? 'right center' : 'left center';
-            s.style.transform = 'scale(0.71)';
-          } else {
-            s.style.transformOrigin = 'center';
-            s.style.transform = 'scale(1)';
-          }
+        // Tất cả slide bằng nhau, không phóng to ảnh giữa, không làm mờ 2 bên
+        slides.forEach((s) => {
+          s.style.opacity = '1';
+          s.style.transform = 'scale(1)';
         });
         const real = ((index - 1 + total) % total) + 1;
         counter.textContent = real + ' – ' + total;
