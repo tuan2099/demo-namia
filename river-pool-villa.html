@@ -112,7 +112,7 @@
     <div id="gallery" class="relative">
       <!-- viewport -->
       <div class="overflow-hidden">
-        <div id="slider-track" class="flex items-center transition-all duration-500 ease-out opacity-0">
+        <div id="slider-track" class="flex items-center transition-all duration-500 ease-out opacity-0 will-change-transform">
           <!-- slides được chèn bằng JS -->
         </div>
       </div>
@@ -147,7 +147,7 @@
       // Tạo 1 slide
       function makeSlide(src, i) {
         const slide = document.createElement('div');
-        slide.className = 'slide shrink-0 w-[92%] md:w-[48%] px-2 md:px-[22px] transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] will-change-transform';
+        slide.className = 'slide shrink-0 w-[92%] md:w-[48%] px-2 md:px-[22px]';
         slide.innerHTML = '<img src="' + src + '" alt="Villa ' + (i + 1) +
           '" class="w-full h-[340px] md:h-[600px] object-cover">';
         return slide;
@@ -179,7 +179,8 @@
       }
 
       // Khi lướt tới clone thì nhảy về ảnh thật tương ứng (không animation)
-      track.addEventListener('transitionend', () => {
+      track.addEventListener('transitionend', (e) => {
+        if (e.target !== track || e.propertyName !== 'transform') return;
         if (index === 0) { index = total; position(false); }
         else if (index === slides.length - 1) { index = 1; position(false); }
       });
@@ -204,10 +205,15 @@
         track.style.transition = 'none';
         viewport.classList.add('cursor-grabbing');
       }
+      let dragRAF = null, lastDragX = 0;
       function dragMove(e) {
         if (!dragging) return;
-        const x = e.touches ? e.touches[0].clientX : e.clientX;
-        track.style.transform = 'translateX(' + (baseX + (x - startX)) + 'px)';
+        lastDragX = e.touches ? e.touches[0].clientX : e.clientX;
+        if (dragRAF) return;
+        dragRAF = requestAnimationFrame(() => {
+          dragRAF = null;
+          track.style.transform = 'translateX(' + (baseX + (lastDragX - startX)) + 'px)';
+        });
       }
       function dragEnd(e) {
         if (!dragging) return;
