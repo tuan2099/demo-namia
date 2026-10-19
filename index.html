@@ -110,8 +110,8 @@
   <section class="py-16 md:py-[157px] overflow-hidden">
     <div id="gallery" class="relative">
       <!-- viewport -->
-      <div class="overflow-hidden">
-        <div id="slider-track" class="flex items-center transition-all duration-500 ease-out opacity-0 will-change-transform">
+      <div class="swiper gallery-swiper">
+        <div class="swiper-wrapper" id="slider-track">
           <!-- slides được chèn bằng JS -->
         </div>
       </div>
@@ -129,6 +129,8 @@
     </div>
   </section>
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.1.14/swiper-bundle.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/11.1.14/swiper-bundle.min.js"></script>
   <script>
     (function () {
       // Ảnh gallery — thêm/bớt file trong assets/img tùy ý
@@ -147,59 +149,29 @@
       const counter = document.getElementById('counter');
       const total = photos.length;
 
-      // Tạo 1 slide
-      function makeSlide(src, i) {
+      // Tạo slide theo cấu trúc Swiper (giữ nguyên kích thước & tỉ lệ cũ)
+      photos.forEach((src, i) => {
         const slide = document.createElement('div');
-        slide.className = 'slide shrink-0 w-[92%] md:w-[48%] px-2 md:px-[22px]';
+        slide.className = 'swiper-slide w-[92%] md:w-[48%] px-2 md:px-[22px]';
         slide.innerHTML = '<img src="' + src + '" alt="Villa ' + (i + 1) +
-          '" class="w-full h-[340px] md:h-[600px] object-cover">';
-        return slide;
-      }
-
-      // Nhân bản ảnh cuối ở đầu + ảnh đầu ở cuối -> loop vô tận, luôn có slide 2 bên
-      track.appendChild(makeSlide(photos[total - 1], total - 1)); // clone cuối
-      photos.forEach((src, i) => track.appendChild(makeSlide(src, i)));
-      track.appendChild(makeSlide(photos[0], 0)); // clone đầu
-
-      const slides = track.querySelectorAll('.slide');
-      let index = 1; // bắt đầu ở ảnh thật đầu tiên (sau clone)
-
-      function position(animate) {
-        const slide = slides[index];
-        const offset = slide.offsetLeft - (track.parentElement.clientWidth - slide.clientWidth) / 2;
-        track.style.transition = animate
-          ? 'transform .7s cubic-bezier(0.22,1,0.36,1), opacity .5s'
-          : 'opacity .5s';
-        track.style.transform = 'translateX(' + (-offset) + 'px)';
-        track.style.opacity = '1';
-        // Tất cả slide bằng nhau, không phóng to ảnh giữa, không làm mờ 2 bên
-        slides.forEach((s) => {
-          s.style.opacity = '1';
-          s.style.transform = 'scale(1)';
-        });
-        const real = ((index - 1 + total) % total) + 1;
-        counter.textContent = real + ' – ' + total;
-      }
-
-      // Khi lướt tới clone thì nhảy về ảnh thật tương ứng (không animation)
-      track.addEventListener('transitionend', (e) => {
-        if (e.target !== track || e.propertyName !== 'transform') return;
-        if (index === 0) { index = total; position(false); }
-        else if (index === slides.length - 1) { index = 1; position(false); }
+          '" class="w-full h-[340px] md:h-[600px] object-cover" draggable="false">';
+        track.appendChild(slide);
       });
 
-      document.getElementById('prev').addEventListener('click', () => { index--; position(true); });
-      document.getElementById('next').addEventListener('click', () => { index++; position(true); });
-      window.addEventListener('resize', () => position(false));
-
-      // Chặn hành vi kéo-thả ảnh mặc định của trình duyệt
-      track.querySelectorAll('img').forEach(img => img.addEventListener('dragstart', e => e.preventDefault()));
-
-      // Tailwind CDN áp style bất đồng bộ → chờ layout ổn định rồi mới căn giữa.
-      window.addEventListener('load', () => position(false));
-      requestAnimationFrame(() => position(false));
-      setTimeout(() => position(false), 200);
-      setTimeout(() => position(false), 600);
+      // Khởi tạo Swiper: căn giữa, loop vô tận, kéo mượt + nút Prev/Next
+      const swiper = new Swiper('.gallery-swiper', {
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        loop: true,
+        speed: 700,
+        grabCursor: true,
+        navigation: { prevEl: '#prev', nextEl: '#next' },
+        on: {
+          slideChange() {
+            counter.textContent = (this.realIndex + 1) + ' – ' + total;
+          },
+        },
+      });
     })();
   </script>
 
