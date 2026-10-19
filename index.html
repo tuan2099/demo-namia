@@ -152,7 +152,7 @@
       // Tạo slide theo cấu trúc Swiper (giữ nguyên kích thước & tỉ lệ cũ)
       photos.forEach((src, i) => {
         const slide = document.createElement('div');
-        slide.className = 'swiper-slide w-[92%] md:w-[48%] px-2 md:px-[22px]';
+        slide.className = 'swiper-slide !w-[92%] md:!w-[48%] px-2 md:px-[22px]';
         slide.innerHTML = '<img src="' + src + '" alt="Villa ' + (i + 1) +
           '" class="w-full h-[340px] md:h-[600px] object-cover" draggable="false">';
         track.appendChild(slide);
