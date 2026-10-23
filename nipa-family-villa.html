@@ -14,6 +14,12 @@
        ghi đè line-height global nhờ độ ưu tiên cao hơn */
     body .villa-copy p,
     body .villa-copy li { line-height: 1.6 !important; }
+    /* Cho phép các tiện ích leading-* của Tailwind hoạt động (đè luật global 1.1) */
+    body *.leading-tight   { line-height: 1.25  !important; }
+    body *.leading-snug    { line-height: 1.375 !important; }
+    body *.leading-normal  { line-height: 1.5   !important; }
+    body *.leading-relaxed { line-height: 1.625 !important; }
+    body *.leading-loose   { line-height: 2     !important; }
   </style>
 </head>
 <body class="font-sans antialiased bg-sand text-ink">
@@ -24,7 +30,7 @@
 
       <!-- Cột nội dung -->
       <div class="villa-copy order-2 max-w-md md:order-1 flex flex-col h-full">
-        <h1 class="text-3xl leading-tight tracking-wide uppercase font-heading md:text-4xl text-primary-900">
+        <h1 class="text-4xl leading-tight tracking-wide uppercase font-heading md:text-5xl text-primary-900">
           Nipa Family<br>Pool Villa
         </h1>
 
@@ -34,15 +40,15 @@
 
         <p class="mt-8 text-sm text-slate-600">Villa Details</p>
         <ul class="mt-2 text-sm text-slate-600">
-          <li class="flex gap-6"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Total space: 210 sqm / 2,260 sq ft</li>
-          <li class="pl-[29px] mt-1 text-slate-600">Indoor space: 80 sqm / 861 sq ft</li>
-          <li class="pl-[29px] mt-1 text-slate-600">Private pool &amp; terrace: 130 sqm / 1,399 sq ft</li>
-          <li class="flex gap-6 mt-6"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>One king bed: 200 × 200 cm / 79 × 79 in</li>
-          <li class="flex gap-6 mt-6"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Two twin beds: 110 × 200 cm / 43 × 79 in each</li>
+          <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Total space: 210 sqm / 2,260 sq ft</li>
+          <li class="flex gap-3 mt-1 text-slate-600"><span class="shrink-0 invisible">–</span>Indoor space: 80 sqm / 861 sq ft</li>
+          <li class="flex gap-3 mt-1 text-slate-600"><span class="shrink-0 invisible">–</span>Private pool &amp; terrace: 130 sqm / 1,399 sq ft</li>
+          <li class="flex gap-3 mt-6"><span class="text-primary-500 shrink-0">–</span>One king bed: 200 × 200 cm / 79 × 79 in</li>
+          <li class="flex gap-3 mt-6"><span class="text-primary-500 shrink-0">–</span>Two twin beds: 110 × 200 cm / 43 × 79 in each</li>
         </ul>
 
         <a href="contact.html"
-           class="mt-auto self-start border border-primary-500 text-primary-900 hover:bg-primary-500 hover:text-white tracking-[0.2em] text-sm px-10 py-4 transition">
+           class="mt-auto self-start border border-primary-900 text-primary-900 px-5 py-2.5 md:px-8 md:py-3 text-[12px] font-medium tracking-[0.2em] uppercase hover:bg-primary-900 hover:text-sand transition">
           BOOK NOW
         </a>
       </div>
@@ -59,7 +65,7 @@
   </section>
 
   <!-- Your villa stay includes -->
-  <section class="bg-[#cfc0b0]">
+  <section class="bg-[#dfd4c5]">
     <div class="max-w-[1280px] mx-auto px-4 py-16 md:py-20">
       <div class="grid gap-6 md:grid-cols-[7fr_3fr] items-stretch">
 
@@ -68,13 +74,13 @@
           <div class="bg-sand p-8 md:p-12">
             <h2 class="text-2xl tracking-wide uppercase font-heading text-primary-900">Your Villa Stay Includes</h2>
             <ul class="mt-8 space-y-3 text-sm text-slate-600">
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Daily 90-minute Wellness Journey per night stay</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>All-day breakfast</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Non-alcoholic refreshments in your villa, replenished daily</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Scheduled wellbeing and cultural activities</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Your personal Hoi An Host</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Scheduled shuttle boat to Hoi An Ancient Town</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Scheduled sunset river boat with free cocktails and canapés</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Daily 90-minute Wellness Journey per night stay</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>All-day breakfast</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Non-alcoholic refreshments in your villa, replenished daily</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Scheduled wellbeing and cultural activities</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Your personal Hoi An Host</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Scheduled shuttle boat to Hoi An Ancient Town</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Scheduled sunset river boat with free cocktails and canapés</li>
             </ul>
           </div>
           <div class="overflow-hidden">
@@ -90,15 +96,15 @@
           <div class="flex-1 bg-sand p-8 md:p-12">
             <h2 class="text-2xl tracking-wide uppercase font-heading text-primary-900">Amenities</h2>
             <ul class="mt-8 space-y-3 text-sm text-slate-600">
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Bath amenities</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Hairdryer</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Bathrobes &amp; slippers</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Artisan coffee &amp; tea set</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Air conditioning</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Smart TV</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>High-speed Wi-Fi</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>In-room safe</li>
-            <li class="flex gap-3"><span class="flex items-center self-stretch shrink-0"><span class="w-[5px] h-[5px] rounded-full bg-primary-500"></span></span>Bamboo bicycles</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Bath amenities</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Hairdryer</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Bathrobes &amp; slippers</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Artisan coffee &amp; tea set</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Air conditioning</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Smart TV</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>High-speed Wi-Fi</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>In-room safe</li>
+            <li class="flex gap-3"><span class="text-primary-500 shrink-0">–</span>Bamboo bicycles</li>
             </ul>
           </div>
         </div>
@@ -175,33 +181,33 @@
 
   <!-- Discover more -->
   <section class="max-w-[1280px] mx-auto px-4 pb-24">
-    <h2 class="text-2xl tracking-wide uppercase font-heading md:text-3xl text-primary-900">Discover More</h2>
+    <h2 class="text-2xl tracking-wide uppercase font-heading md:text-3xl text-primary-900">Other Villas</h2>
 
     <div class="grid gap-10 mt-8 md:grid-cols-2">
 
       <article class="flex flex-col h-full">
         <img src="assets/img/River-Family-Villa-Bedroom-double-1-Namia-River-Retreat-SLH.jpg"
              alt="River Family Pool Villa" class="w-full aspect-[4/3] object-cover">
-        <h3 class="mt-8 text-2xl tracking-wide uppercase font-heading text-primary-900">River Family Pool Villa</h3>
-        <p class="max-w-md mt-4 text-sm leading-relaxed text-slate-600">
+        <h3 class="mt-8 mb-4 text-2xl md:text-3xl leading-snug uppercase font-heading text-primary-900">River Family Pool Villa</h3>
+        <p class="text-slate-600 text-[14px] leading-relaxed mb-7 max-w-xl">
           A two-bedroom riverfront family villa with private pool, river views, and terrace loungers. Ideal for family stays at a luxury riverside wellness-inclusive resort in Hoi An.
         </p>
-        <div class="flex gap-4 pt-8 mt-auto">
-          <a href="river-family-villa.html" class="px-8 py-3 text-sm tracking-widest transition border border-primary-500 text-primary-900 hover:bg-primary-500 hover:text-white">DISCOVER</a>
-          <a href="contact.html" class="px-8 py-3 text-sm tracking-widest transition border border-primary-500 text-primary-900 hover:bg-primary-500 hover:text-white">BOOK NOW</a>
+        <div class="flex flex-wrap items-center gap-6 md:gap-4 mt-auto">
+          <a href="river-family-villa.html" class="border border-primary-900 text-primary-900 px-5 py-2.5 md:px-8 md:py-3 text-[12px] font-medium tracking-[0.2em] uppercase hover:bg-primary-900 hover:text-sand transition">DISCOVER</a>
+          <a href="contact.html" class="border border-primary-900 text-primary-900 px-5 py-2.5 md:px-8 md:py-3 text-[12px] font-medium tracking-[0.2em] uppercase hover:bg-primary-900 hover:text-sand transition">BOOK NOW</a>
         </div>
       </article>
 
       <article class="flex flex-col h-full">
         <img src="assets/img/Honeymoon Villa-interior 1-Namia River Retreat-SLH.jpg"
              alt="Honeymoon Pool Villa" class="w-full aspect-[4/3] object-cover">
-        <h3 class="mt-8 text-2xl tracking-wide uppercase font-heading text-primary-900">Honeymoon Pool Villa</h3>
-        <p class="max-w-md mt-4 text-sm leading-relaxed text-slate-600">
+        <h3 class="mt-8 mb-4 text-2xl md:text-3xl leading-snug uppercase font-heading text-primary-900">Honeymoon Pool Villa</h3>
+        <p class="text-slate-600 text-[14px] leading-relaxed mb-7 max-w-xl">
           A romantic one-bedroom villa with 180° Thu Bon river views, private pool, sauna, Jacuzzi, and an in-villa spa treatment room for couples. Candlelit dining in a riverside sala, soft lantern light, and fragrant herbs create a luxury honeymoon villa retreat in Hoi An.
         </p>
-        <div class="flex gap-4 pt-8 mt-auto">
-          <a href="index.html" class="px-8 py-3 text-sm tracking-widest transition border border-primary-500 text-primary-900 hover:bg-primary-500 hover:text-white">DISCOVER</a>
-          <a href="contact.html" class="px-8 py-3 text-sm tracking-widest transition border border-primary-500 text-primary-900 hover:bg-primary-500 hover:text-white">BOOK NOW</a>
+        <div class="flex flex-wrap items-center gap-6 md:gap-4 mt-auto">
+          <a href="index.html" class="border border-primary-900 text-primary-900 px-5 py-2.5 md:px-8 md:py-3 text-[12px] font-medium tracking-[0.2em] uppercase hover:bg-primary-900 hover:text-sand transition">DISCOVER</a>
+          <a href="contact.html" class="border border-primary-900 text-primary-900 px-5 py-2.5 md:px-8 md:py-3 text-[12px] font-medium tracking-[0.2em] uppercase hover:bg-primary-900 hover:text-sand transition">BOOK NOW</a>
         </div>
       </article>
 
