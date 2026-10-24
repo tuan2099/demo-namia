@@ -18,7 +18,7 @@ tailwind.config = {
           900: '#3a3230', // nâu đậm (chữ/dark) — gốc #3A3230
         },
         ink: '#3A3230',  // màu chữ chính
-        sand: '#ebe6db', // nền kem (đồng nhất toàn trang)
+        sand: '#f1ebe3', // nền kem morning (đồng nhất toàn trang)
       },
       fontFamily: {
         // Open Sans = body (mặc định), Gotu = tiêu đề
