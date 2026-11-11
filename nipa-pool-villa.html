@@ -24,6 +24,8 @@
     body .villa-copy h1 { line-height: 1.15 !important; }
     /* Nhích gạch đầu dòng Villa Details xuống 2px cho thẳng với chữ */
     body .villa-copy ul li > span:first-child { margin-top: 2px; }
+    /* Gạch đầu dòng: thụt treo để khi xuống dòng (mobile) chữ canh thẳng, không trôi về lề */
+    .dash-list li { padding-left: 1.4em; text-indent: -1.4em; }
   </style>
 </head>
 <body class="font-sans antialiased bg-sand text-ink">
@@ -33,7 +35,7 @@
     <div class="grid md:grid-cols-[3fr_7fr] gap-10 lg:gap-16 items-stretch">
 
       <!-- Cột nội dung -->
-      <div class="villa-copy order-2 max-w-md md:order-1 flex flex-col h-full">
+      <div class="villa-copy order-2 max-w-md md:order-1 flex flex-col md:h-full">
         <p class="text-[12px] tracking-[0.2em] uppercase font-heading text-primary-900 mb-3">1 Bedroom</p>
         <h1 class="text-3xl leading-tight tracking-wide uppercase font-heading text-primary-900">
           Nipa Pool Villa
@@ -44,7 +46,7 @@
         </p>
 
         <p class="mt-8 text-sm text-[#5c504d]">Villa details:</p>
-        <ul class="mt-2 text-sm text-[#5c504d]">
+        <ul class="mt-2 text-sm text-[#5c504d] dash-list">
           <li class="">–&nbsp;&nbsp;&nbsp;Indoor space: 62 sqm</li>
           <li class="mt-1 text-[#5c504d]"><span class="invisible">–&nbsp;&nbsp;&nbsp;</span>Private pool &amp; terrace: 86 sqm</li>
           <li class="mt-1 text-[#5c504d]"><span class="invisible">–&nbsp;&nbsp;&nbsp;</span>Total space: 148 sqm</li>
@@ -53,7 +55,7 @@
         </ul>
 
         <a href="contact.html"
-           class="mt-auto self-start border border-primary-900 text-primary-900 px-5 py-2.5 md:px-8 md:py-3 text-[12px] font-medium tracking-[0.2em] uppercase hover:bg-primary-900 hover:text-sand transition">
+           class="md:mt-auto self-start border border-primary-900 text-primary-900 px-5 py-2.5 md:px-8 md:py-3 text-[12px] font-medium tracking-[0.2em] uppercase hover:bg-primary-900 hover:text-sand transition">
           BOOK NOW
         </a>
       </div>
@@ -78,7 +80,7 @@
         <div class="space-y-6">
           <div class="bg-sand p-8 md:p-12">
             <h2 class="text-2xl tracking-wide uppercase font-heading text-primary-900">Your Villa Stay Includes</h2>
-            <ul class="mt-8 space-y-3 text-sm text-[#5c504d]">
+            <ul class="mt-8 space-y-3 text-sm text-[#5c504d] dash-list">
             <li class="">–&nbsp;&nbsp;&nbsp;Daily 90-minute Wellness Journey per night stay</li>
             <li class="">–&nbsp;&nbsp;&nbsp;All-day breakfast</li>
             <li class="">–&nbsp;&nbsp;&nbsp;Non-alcoholic refreshments in your villa, replenished daily</li>
@@ -100,7 +102,7 @@
           </div>
           <div class="flex-1 bg-sand p-8 md:p-12">
             <h2 class="text-2xl tracking-wide uppercase font-heading text-primary-900">Amenities</h2>
-            <ul class="mt-8 space-y-3 text-sm text-[#5c504d]">
+            <ul class="mt-8 space-y-3 text-sm text-[#5c504d] dash-list">
             <li class="">–&nbsp;&nbsp;&nbsp;Bath amenities</li>
             <li class="">–&nbsp;&nbsp;&nbsp;Hairdryer</li>
             <li class="">–&nbsp;&nbsp;&nbsp;Bathrobes &amp; slippers</li>
